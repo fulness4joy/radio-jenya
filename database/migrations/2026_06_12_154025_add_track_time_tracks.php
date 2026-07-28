@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('tracks', function (Blueprint $table) {
-            $table->integer("time")->default(0);
+            $table->integer("time")->default(0)->change();
         });
     }
 
