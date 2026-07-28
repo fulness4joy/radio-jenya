@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("image")->nullable();
             $table->string("path");
             $table->string("status")->default("show");
-            $table->string("time");
+            $table->integer("time")->default(0);
             $table->timestamps();
         });
     }
