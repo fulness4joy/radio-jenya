@@ -24,7 +24,7 @@ Route::get('/channel/{id}', [ChannelController::class, "view"])->name("view");
 Route::post('/channel/like/{id}', [ChannelController::class, "likes"])->middleware("auth")->name("likes");
 Route::get('/channel/radio/{id}', [ChannelController::class, "radio"])->name("radio");
 
-Route::get('/radio/{id}', [ChannelController::class, "view"])->name("view");
+Route::get('/radio/{id}', [ChannelController::class, "view"])->name("view_radio");
 
 Route::get('/track/{id}/stream', [ChannelController::class, "streamTrack"])->name("track.stream");
 Route::post('/track/like/{id}', [ChannelController::class, "tracks_likes"])->middleware("auth")->name("tracks_likes");
