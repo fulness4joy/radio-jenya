@@ -11,7 +11,7 @@ set -e
 
 # echo "Database connected."
 
-php artisan key:generate --force
+# php artisan key:generate --force
 
 php artisan migrate --force
 
