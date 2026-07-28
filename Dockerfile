@@ -36,6 +36,9 @@ WORKDIR /var/www/html
 COPY . .
 
 RUN mkdir -p database && touch database/database.sqlite
+
+RUN chown -R www-data:www-data database storage bootstrap/cache
+
 # PHP
 RUN composer install --no-dev --optimize-autoloader
 
