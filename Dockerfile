@@ -46,14 +46,16 @@ RUN npm run build
 RUN chown -R www-data:www-data storage bootstrap/cache
 
 # Apache VirtualHost
-RUN echo '<VirtualHost *:80>
+RUN cat <<'EOF' > /etc/apache2/sites-available/000-default.conf
+<VirtualHost *:80>
     DocumentRoot /var/www/html/public
 
     <Directory /var/www/html/public>
         AllowOverride All
         Require all granted
     </Directory>
-</VirtualHost>' > /etc/apache2/sites-available/000-default.conf
+</VirtualHost>
+EOF
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
