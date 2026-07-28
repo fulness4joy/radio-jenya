@@ -2,14 +2,25 @@
 
 set -e
 
-# php artisan migrate --force
+# echo "Waiting for database..."
 
-# php artisan db:seed --force
+# until mysql -h"$DB_HOST" -u"$DB_USERNAME" -p"$DB_PASSWORD" -e "SELECT 1" >/dev/null 2>&1
+# do
+#     sleep 2
+# done
 
-# php artisan storage:link || true
+# echo "Database connected."
 
-# php artisan config:cache
-# php artisan route:cache
-# php artisan view:cache
+php artisan key:generate --force
+
+php artisan migrate --force
+
+php artisan db:seed --force
+
+php artisan storage:link || true
+
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
 
 exec apache2-foreground
