@@ -19,9 +19,7 @@ class PlaylistForm
                     ->required(),
                 TextInput::make('description'),
                 FileUpload::make('image')
-                    ->image()
-                    ->disk('public')
-                    ->directory('playlists'),
+                    ->image(),
                 Select::make('channel_id')
                     ->required()
                     ->relationship(name: 'channel', titleAttribute: 'name'),
