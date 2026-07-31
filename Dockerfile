@@ -52,6 +52,9 @@ RUN chown -R www-data:www-data storage bootstrap/cache
 # Apache VirtualHost
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 
+# php.ini
+COPY php.ini /usr/local/etc/php/conf.d/uploads.ini
+
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
