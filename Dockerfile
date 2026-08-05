@@ -1,7 +1,7 @@
 FROM php:8.4-apache
 
 # Системные зависимости
-RUN apt-get install -y \
+RUN apt-get update && apt-get install -y \
     git \
     unzip \
     zip \
@@ -11,6 +11,7 @@ RUN apt-get install -y \
     libpng-dev \
     libjpeg62-turbo-dev \
     libfreetype6-dev \
+    libpq-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install \
         pdo_pgsql \
