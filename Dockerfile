@@ -1,7 +1,7 @@
 FROM php:8.4-apache
 
 # Системные зависимости
-RUN apt-get update && apt-get install -y \
+RUN apt-get install -y \
     git \
     unzip \
     zip \
