@@ -13,10 +13,11 @@ set -e
 
 # php artisan key:generate --force
 
-# php artisan migrate --force
+# Для применения миграций при обычном развертывании контейнера
+php artisan migrate --force
 
-# php artisan db:seed --force
-php artisan migrate:fresh --seed --force
+# Для пересоздания базы данных и заполнения начальными данными, используйте команду migrate:fresh с опцией --seed. Это удалит все таблицы и создаст их заново, а затем выполнит сидирование базы данных.
+#php artisan migrate:fresh --seed --force
 
 php artisan storage:link || true
 
